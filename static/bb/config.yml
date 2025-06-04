@@ -1,18 +1,26 @@
+site_url: https://hugo-site-dup.pages.dev/
+display_url: https://hugo-site-dup.pages.dev/
+publish_mode: editorial_workflow
+show_preview_links: true
 backend:
   name: github
   repo: mugi2/hugo-site
   branch: main
-
-media_folder: "static/images"
-public_folder: "/images"
-
+  base_url: https://hugo-site-dup.pages.dev/
+  auth_endpoint: /api/auth
+  squash_merges: true
+  preview_context: 'cloudflare preview deploy'
+media_folder: "static/uploads"
+public_folder: "/uploads"
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "content/posts"
+  - name: articles
+    label: Articles
+    folder: "content/articles"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: '{{slug}}'
+    editor:
+      preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
