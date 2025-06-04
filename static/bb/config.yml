@@ -1,7 +1,17 @@
 site_url: https://hugo-site-dup.pages.dev/
 display_url: https://hugo-site-dup.pages.dev/
 publish_mode: editorial_workflow
-show_preview_links: true
+
+# Uncomment below to show preview links in the UI
+# show_preview_links: true 
+
+# Uncomment below to enable drafts https://www.decapcms.org/docs/add-to-your-site/#editorial-workflow
+# publish_mode: editorial_workflow
+
+# Uncomment below to enable a link to your published site in the header bar of Decap CMS
+# site_url: https://hugo-site-dup.pages.dev/
+
+
 backend:
   name: github
   repo: mugi2/hugo-site
@@ -14,14 +24,17 @@ backend:
 media_folder: "static/uploads"
 public_folder: "/uploads"
 collections:
-  - name: articles
-    label: Articles
-    folder: "content/articles"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    preview_path: '{{slug}}'
+  # Podcast episodes
+  - name: "episodes" # Used in routes, e.g., /admin/collections/blog
+    label: "Episodes" # Used in the UI
+    folder: "content/episodes" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{title}}" # Filename template, e.g., YYYY-MM-DD-title.md
     editor:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Audio URL", name: "audio_url", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
