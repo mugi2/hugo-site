@@ -1,6 +1,7 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://hugo-site-dup.pages.dev/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = "mini"
-permalinks:
-  episodes: /episodes/:slug/
+
+[permalinks]
+episodes = "/episodes/:slug/"
