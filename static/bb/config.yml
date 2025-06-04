@@ -7,7 +7,7 @@ backend:
   repo: mugi2/hugo-site
   branch: main
   base_url: https://hugo-site-dup.pages.dev/
-  auth_endpoint: /api/auth
+  auth_endpoint: api/auth
   squash_merges: true
   preview_context: 'cloudflare preview deploy'
 media_folder: "static/uploads"
